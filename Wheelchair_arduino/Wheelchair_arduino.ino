@@ -72,7 +72,7 @@ void loop() {
     ret = myVR.recognize(buf, 50);
     if (ret > 0) {
       intake=printSignature(buf + 4, buf[3]);
-      Serial.println("Voice module said "+intake);
+      bluetooth.println("Voice module said "+intake);
    
      intake.trim();
     intake.toUpperCase();
@@ -93,7 +93,7 @@ while(true){
 if(bluetooth.available()>0){
   intake = bluetooth.readString();
   intake.trim();
-  Serial.println("This is the Bluetooth");
+  bluetooth.println("This is the Bluetooth");
   intake.toUpperCase();
 if(intake=="VOICE"){
 break;  
@@ -116,27 +116,27 @@ void Worker(String one){
     if (one.equals("FORWARD") == true) {
       forward();
       flag = 1;
-      Serial.println("Moving Forward");
+      bluetooth.println("Moving Forward");
     }
     else if (one.equals("BACKWARD") == true) {
       backward();
       flag = 2;
-      Serial.println("Moving Backward");
+      bluetooth.println("Moving Backward");
 
     }
     else if (one.equals("LEFT") == true) {
       left();
       flag = 3;
-      Serial.println("Moving Left");
+      bluetooth.println("Moving Left");
     }
     else if (one.equals("RIGHT") == true) {
       right();
       flag = 4;
-      Serial.println("Moving Right");
+      bluetooth.println("Moving Right");
     }
 
     else {
-      Serial.println("Brake");
+      bluetooth.println("Brake");
       brake();
       flag = 0;
     }
@@ -159,7 +159,7 @@ if (((sonar1.ping_cm() > 15) && (flag != 2)) || ((sonar2.ping_cm() > 15) && (fla
 
   else if ((sonar2.ping_cm() < 15) || (sonar1.ping_cm() < 15)) {
     brake();
-    Serial.println("Not working");
+    bluetooth.println("Not working");
   }
  
 }
