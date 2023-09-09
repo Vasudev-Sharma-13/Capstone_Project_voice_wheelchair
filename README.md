@@ -1,7 +1,6 @@
 # Voice-Activated Wheelchair Control System
 voice automated wheelchair using arduino with collision detection using ultrasonic sensors
 
-## Group members
 ## Group Members
 
 1. Vasudev Sharma (Thapar University 2016-2020)
