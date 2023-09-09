@@ -10,10 +10,10 @@ void setup() {
 Serial.begin(9600);
 bluetooth.begin(9600);  
 
-pinMode(A3,OUTPUT);
-pinMode(A4,OUTPUT);
-digitalWrite(A3, HIGH);
-digitalWrite(A4, HIGH);
+pinMode(A2,OUTPUT);
+pinMode(A5,OUTPUT);
+digitalWrite(A2, HIGH);
+digitalWrite(A5, HIGH);
 
 
 
