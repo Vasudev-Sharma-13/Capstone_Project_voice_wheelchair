@@ -1,9 +1,5 @@
-# Capstone_Project_voice_wheelchair
-voice automated wheelchair using arduino and collision detection
-
-
 # Voice-Activated Wheelchair Control System
-
+voice automated wheelchair using arduino with collision detection using ultrasonic sensors
 ## Introduction
 
 The concept of using voice-activated technology to control a wheelchair aims to provide a unique and innovative solution that sets itself apart from conventional projects. By integrating this cutting-edge technology with a mechanical system, we aim to simplify the lives of individuals with disabilities and generate interest in our ever-advancing society.
@@ -28,6 +24,6 @@ Our voice-activated wheelchair control system offers a promising solution to imp
 
 ---
 
-**Note:** This README provides an overview of the project's objectives and methodology. For detailed technical documentation and code implementation, please refer to the project repository.
+**Note:** This README provides an overview of the project's objectives and methodology. For detailed technical documentation and code implementation, please refer to the project report in repository.
 
-For more information and updates, visit our project page [here](https://www.example.com/voice-activated-wheelchair-control).
+
