@@ -14,3 +14,42 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 }
+
+
+void forward(){
+digitalWrite(7, HIGH);
+digitalWrite(6, LOW);
+digitalWrite(8, HIGH);
+digitalWrite(9, LOW);
+}
+
+void backward(){
+digitalWrite(6, HIGH);
+digitalWrite(7, LOW);
+digitalWrite(9, HIGH);
+digitalWrite(8, LOW);
+}
+
+void right(){
+digitalWrite(7, HIGH);
+digitalWrite(6, LOW);
+digitalWrite(8, LOW);
+digitalWrite(9, LOW);
+
+}
+
+void left(){
+digitalWrite(7, LOW);
+digitalWrite(6, LOW);
+digitalWrite(8, HIGH);
+digitalWrite(9, LOW);
+
+}
+
+void brake(){
+digitalWrite(7, LOW);
+digitalWrite(6, LOW);
+digitalWrite(8, LOW);
+digitalWrite(9, LOW);
+
+}
