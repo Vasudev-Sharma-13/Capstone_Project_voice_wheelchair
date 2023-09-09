@@ -67,12 +67,12 @@ int ret;
 
 void loop() {
  
-   
-    myVR.listen();
+   ultra();  
+   myVR.listen();
     ret = myVR.recognize(buf, 50);
     if (ret > 0) {
       intake=printSignature(buf + 4, buf[3]);
-      bluetooth.println("Voice module said "+intake);
+      Serial.println("Voice module said "+intake);
    
      intake.trim();
     intake.toUpperCase();
@@ -90,10 +90,11 @@ void loop() {
 void BLUETOOTH(){
 bluetooth.listen();
 while(true){
+  ultra();
 if(bluetooth.available()>0){
   intake = bluetooth.readString();
   intake.trim();
-  bluetooth.println("This is the Bluetooth");
+  Serial.println("This is the Bluetooth");
   intake.toUpperCase();
 if(intake=="VOICE"){
 break;  
@@ -116,33 +117,38 @@ void Worker(String one){
     if (one.equals("FORWARD") == true) {
       forward();
       flag = 1;
-      bluetooth.println("Moving Forward");
+      Serial.println("Moving Forward");
     }
     else if (one.equals("BACKWARD") == true) {
       backward();
       flag = 2;
-      bluetooth.println("Moving Backward");
+      Serial.println("Moving Backward");
 
     }
     else if (one.equals("LEFT") == true) {
       left();
       flag = 3;
-      bluetooth.println("Moving Left");
+      Serial.println("Moving Left");
     }
     else if (one.equals("RIGHT") == true) {
       right();
       flag = 4;
-      bluetooth.println("Moving Right");
+      Serial.println("Moving Right");
     }
 
     else {
-      bluetooth.println("Brake");
+      Serial.println("Brake");
       brake();
       flag = 0;
     }
 
 
-if (((sonar1.ping_cm() > 15) && (flag != 2)) || ((sonar2.ping_cm() > 15) && (flag == 2))) {
+
+ 
+}
+
+void ultra(){
+  if (((sonar1.ping_cm() > 15) && (flag != 2)) || ((sonar2.ping_cm() > 15) && (flag == 2))) {
     if (flag == 1) {
       forward();
     }
@@ -157,11 +163,10 @@ if (((sonar1.ping_cm() > 15) && (flag != 2)) || ((sonar2.ping_cm() > 15) && (fla
     }
   }
 
-  else if ((sonar2.ping_cm() < 15) || (sonar1.ping_cm() < 15)) {
+  else if (((sonar2.ping_cm()<15)&&(sonar2.ping_cm()!=0))|| ((sonar1.ping_cm()<15)&&(sonar1.ping_cm()!=0))) {
     brake();
-    bluetooth.println("Not working");
+    Serial.println(sonar2.ping_cm());
   }
- 
 }
 
 void forward() {
