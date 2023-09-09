@@ -3,18 +3,17 @@
 
 
 SoftwareSerial bluetooth(4,5); //for Bluetooth module RX FOLLOWD BY TX
-
-NewPing sonar1(10,11,100);
-NewPing sonar2(12,13,100);
+NewPing sonar1(10,11);
+NewPing sonar2(12,13);
 
 void setup() {
 Serial.begin(9600);
 bluetooth.begin(9600);  
 
-pinMode(2,OUTPUT);
-pinMode(3,OUTPUT);
-digitalWrite(2, HIGH);
-digitalWrite(3, HIGH);
+pinMode(A3,OUTPUT);
+pinMode(A4,OUTPUT);
+digitalWrite(A3, HIGH);
+digitalWrite(A4, HIGH);
 
 
 
@@ -74,7 +73,7 @@ flag=0;
  
 } //end of if containing serial.available()
 
-if((sonar2.ping_cm()>15)&&(sonar1.ping_cm()>15)){
+if(((sonar1.ping_cm()>15)&&(flag!=2))||((sonar2.ping_cm()>15)&&(flag==2))){
   if(flag==1){
   forward();
   }
@@ -91,6 +90,7 @@ if((sonar2.ping_cm()>15)&&(sonar1.ping_cm()>15)){
 
 else if((sonar2.ping_cm()<15)||(sonar1.ping_cm()<15)){
   brake();
+  bluetooth.println("Not working");
 }
 
 }
@@ -133,3 +133,4 @@ digitalWrite(8, LOW);
 digitalWrite(9, LOW);
 
 }
+
