@@ -1,5 +1,8 @@
 # Voice-Activated Wheelchair Control System
 voice automated wheelchair using arduino with collision detection using ultrasonic sensors
+## Mentor
+
+Dr. Prashant S Rana
 
 ## Group Members
 
